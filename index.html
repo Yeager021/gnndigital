@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Simples</title>
   <style>
     body {
@@ -20,14 +19,14 @@
       color: white;
       border: none;
       padding: 18px;
-      margin: 12px 0; /* espaço entre os botões */
+      margin: 12px 0;
       font-size: 20px;
       cursor: pointer;
       border-radius: 10px;
       transition: 0.3s;
-      width: 100%; /* ocupa a largura da tela */
-      max-width: 400px; /* mas não fica gigante em telas grandes */
-      display: block; /* garante que fique um abaixo do outro */
+      width: 100%;
+      max-width: 400px;
+      display: block;
       margin-left: auto;
       margin-right: auto;
     }
@@ -36,11 +35,17 @@
       background-color: darkred;
     }
 
-    #webhook-content {
-      display: none;
-      margin-top: 20px;
+    /* Container que agrupa botão principal + gaveta */
+    .section {
+      margin-bottom: 15px;
     }
 
+    .hidden-content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* Texto do webhook */
     #webhook-text {
       background-color: #222;
       padding: 15px;
@@ -55,15 +60,27 @@
 </head>
 <body>
 
-  <!-- Botões principais -->
-  <button class="btn" onclick="abrirLink('https://mega.nz/folder/aKQ03TwY#FKmFM-wvKGY4vtvIOP1PVQ')">1 APPS</button>
-  <button class="btn" onclick="abrirLink('https://fotos-perfil-baixar.vercel.app/')">2 FOTOS</button>
-  <button class="btn" onclick="mostrarWebhook()">3 WEBHOOK</button>
+  <!-- Seção APPS -->
+  <div class="section">
+    <button class="btn" onclick="toggleContent('apps-content')">1 APPS</button>
+    <div id="apps-content" class="hidden-content">
+      <button class="btn" onclick="abrirLink('https://www.cloneapp.net/')">App Clone</button>
+      <button class="btn" onclick="abrirLink('https://mega.nz/folder/aKQ03TwY#FKmFM-wvKGY4vtvIOP1PVQ')">Apps ZapSafe</button>
+    </div>
+  </div>
 
-  <!-- Conteúdo liberado pelo botão 3 -->
-  <div id="webhook-content">
-    <div id="webhook-text">https://webhook-cfn2.wpp-app.org/webhook/GNNDigital2</div>
-    <button class="btn" onclick="copiarTexto()">Copiar</button>
+  <!-- Seção FOTOS -->
+  <div class="section">
+    <button class="btn" onclick="abrirLink('https://fotos-perfil-baixar.vercel.app/')">2 FOTOS</button>
+  </div>
+
+  <!-- Seção WEBHOOK -->
+  <div class="section">
+    <button class="btn" onclick="toggleContent('webhook-content')">3 WEBHOOK</button>
+    <div id="webhook-content" class="hidden-content">
+      <div id="webhook-text">https://webhook-cfn2.wpp-app.org/webhook/GNNDigital2</div>
+      <button class="btn" onclick="copiarTexto()">Copiar</button>
+    </div>
   </div>
 
   <script>
@@ -71,8 +88,10 @@
       window.open(url, "_blank"); // abre em nova guia
     }
 
-    function mostrarWebhook() {
-      document.getElementById("webhook-content").style.display = "block";
+    // Alterna visibilidade da gaveta
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.style.display = (content.style.display === "block") ? "none" : "block";
     }
 
     function copiarTexto() {
