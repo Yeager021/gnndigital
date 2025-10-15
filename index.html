@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Simples</title>
+  <title>GNN Digital Facilitador</title>
   <style>
     body {
-      background-color: black;
+      background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -14,8 +14,33 @@
       margin: 0;
     }
 
+    /* Novo header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 30px;
+      padding: 10px;
+      background-color: #111;
+      border-bottom: 1px solid #333;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+
+    .site-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff4500; /* Tom alaranjado inspirado nas galáxias */
+    }
+
     .btn {
-      background-color: red;
+      background-color: #ff0000; /* Vermelho vibrante */
       color: white;
       border: none;
       padding: 18px;
@@ -32,7 +57,36 @@
     }
 
     .btn:hover {
-      background-color: darkred;
+      background-color: #cc0000;
+    }
+
+    .small-btn {
+      background-color: #0000ff; /* Verde vibrante */
+      color: white;
+      border: none;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .small-btn:nth-child(even) {
+      background-color: #0000ff; /* Azul vibrante */
+    }
+
+    .small-btn:hover {
+      background-color: #00cc00; /* Verde mais escuro */
+    }
+
+    .small-btn:nth-child(even):hover {
+      background-color: #00cc00; /* Azul mais escuro */
     }
 
     /* Container que agrupa botão principal + gaveta */
@@ -46,26 +100,54 @@
     }
 
     /* Texto do webhook */
-    #webhook-text {
+    .webhook-text {
       background-color: #222;
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 10px;
       display: inline-block;
       max-width: 90%;
-      word-wrap: break-word;
+      overflow-wrap: break-word;
       font-size: 16px;
+    }
+
+    /* Botão de copiar menor para cada webhook */
+    .copy-btn {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 5px;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background-color: #666;
+    }
+
+    /* Container para cada webhook individual */
+    .webhook-item {
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
 
+  <!-- Novo Header -->
+  <div class="header">
+    <img src="https://s3-cf.zapsafe.work/gnn/GNN.png" alt="Foto de Perfil" class="profile-pic">
+    <h1 class="site-title">GNN Digital</h1>
+  </div>
+
   <!-- Seção APPS -->
   <div class="section">
     <button class="btn" onclick="toggleContent('apps-content')">1 APPS</button>
     <div id="apps-content" class="hidden-content">
-      <button class="btn" onclick="abrirLink('https://www.cloneapp.net/')">App Clone</button>
-      <button class="btn" onclick="abrirLink('https://mega.nz/folder/aKQ03TwY#FKmFM-wvKGY4vtvIOP1PVQ')">Apps ZapSafe</button>
+      <button class="small-btn" onclick="abrirLink('https://www.cloneapp.net/')">App Clone</button>
+      <button class="small-btn" onclick="abrirLink('https://mega.nz/folder/aKQ03TwY#FKmFM-wvKGY4vtvIOP1PVQ')">Apps ZapSafe</button>
     </div>
   </div>
 
@@ -78,8 +160,80 @@
   <div class="section">
     <button class="btn" onclick="toggleContent('webhook-content')">3 WEBHOOK</button>
     <div id="webhook-content" class="hidden-content">
-      <div id="webhook-text">https://webhook-cfn2.wpp-app.org/webhook/GNNDigital2</div>
-      <button class="btn" onclick="copiarTexto()">Copiar</button>
+      <div class="webhook-item">
+        <div id="webhook-text" class="webhook-text">https://webhook.gnndigital.uk/webhook/GNNDigital15</div>
+        <button class="copy-btn" onclick="copiarTexto('webhook-text')">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção ENTREGA 1 -->
+  <div class="section">
+    <button class="btn" onclick="toggleContent('entrega1-content')">ENTREGA 1</button>
+    <div id="entrega1-content" class="hidden-content">
+      <div class="webhook-item">
+        <div id="entrega1-webhook1" class="webhook-text">Obrigada viu amor? ❤️</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook1')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook2" class="webhook-text">Eu tenho certeza que você vai ficar super feliz com os meus conteúdos e eu com certeza vou te fazer chegar lá bem gostoso, várias vezes... 😏💦</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook2')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook3" class="webhook-text">Só acessar o link 👇</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook3')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook4" class="webhook-text">acessar-privadinho.vercel.app</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook4')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook5" class="webhook-text">🔒 Vai pedir uma senha, sua senha é 2638</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook5')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook6" class="webhook-text">Tem coisa quente demais aí vê com calma hihihi</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook6')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega1-webhook7" class="webhook-text">E quando for ver, me imagina ai com você em cada posição bem safada 😈</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega1-webhook7')">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção ENTREGA 2 -->
+  <div class="section">
+    <button class="btn" onclick="toggleContent('entrega2-content')">ENTREGA 2</button>
+    <div id="entrega2-content" class="hidden-content">
+      <div class="webhook-item">
+        <div id="entrega2-webhook1" class="webhook-text">Do fundo do coração, obrigada mesmo, meu bem 🥰</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook1')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook2" class="webhook-text">Vou te enviar o link da videochamada</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook2')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook3" class="webhook-text">assim que estiver pronto, você pode entrar, viu, meu bem? Estarei esperando hehe</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook3')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook4" class="webhook-text">meuprivadinho-salaprivada.vercel.app</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook4')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook5" class="webhook-text">Estou on...</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook5')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook6" class="webhook-text">.........</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook6')">Copiar</button>
+      </div>
+      <div class="webhook-item">
+        <div id="entrega2-webhook7" class="webhook-text">.........</div>
+        <button class="copy-btn" onclick="copiarTexto('entrega2-webhook7')">Copiar</button>
+      </div>
     </div>
   </div>
 
@@ -94,10 +248,13 @@
       content.style.display = (content.style.display === "block") ? "none" : "block";
     }
 
-    function copiarTexto() {
-      let texto = document.getElementById("webhook-text").innerText;
+    // Função genérica para copiar texto de um ID específico
+    function copiarTexto(id) {
+      let texto = document.getElementById(id).innerText;
       navigator.clipboard.writeText(texto).then(() => {
         alert("Texto copiado!");
+      }).catch(() => {
+        alert("Erro ao copiar texto.");
       });
     }
   </script>
