@@ -153,7 +153,11 @@
 
   <!-- Seção FOTOS -->
   <div class="section">
-    <button class="btn" onclick="abrirLink('https://fotos-perfil-baixar.vercel.app/')">2 FOTOS</button>
+    <button class="btn" onclick="toggleContent('fotos-content')">2 FOTOS</button>
+    <div id="fotos-content" class="hidden-content">
+      <button class="small-btn" onclick="abrirLink('https://fotos-perfil-baixar.vercel.app/')">PERFIL</button>
+      <button class="small-btn" onclick="abrirLink('https://fotos-capa-baixar.vercel.app/')">CAPA</button>
+    </div>
   </div>
 
   <!-- Seção WEBHOOK -->
